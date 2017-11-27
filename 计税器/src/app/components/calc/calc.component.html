@@ -1,0 +1,30 @@
+<form #myform="ngForm" class="calc">
+  <div class="form-group">
+    <input type="number" (input)="show = false" #mygz="ngModel" name="gongzi" [(ngModel)]="gongzi" required placeholder="工资">
+    <span *ngIf="mygz.dirty">工资不能低于最低标准：1600</span>
+  </div>
+  <div class="form-group">
+    <input type="number" (input)="show = false" #myjx="ngModel" name="jixiao" [(ngModel)]="jixiao" required placeholder="绩效">
+    <span *ngIf="myjx.dirty">绩效不能为负值</span>
+  </div>
+  <div class="form-group">
+    <input type="number" (input)="show = false" #myjj="ngModel" name="jiangjin" [(ngModel)]="jiangjin" required placeholder="奖金">
+    <span *ngIf="myjj.dirty">奖金不能为负值</span>
+  </div>
+  <div class="form-group">
+    <input type="button" value="计算" (click)="calc()" [disabled]="myform.invalid">
+  </div>
+</form>
+<!-- 当点击计算按钮的时候才能进行结果的展示 -->
+<ul *ngIf="show">
+  <li>总工资：￥{{result?.total | number:'1.2-2'}}</li>
+  <li>养老：￥{{result?.shebao.yanglao | number:'1.2-2'}}</li>
+  <li>医疗：￥{{result?.shebao.yiliao | number:'1.2-2'}}</li>
+  <li>工伤：￥{{result?.shebao.gongshang | number:'1.2-2'}}</li>
+  <li>失业：￥{{result?.shebao.shiye | number:'1.2-2'}}</li>
+  <li>生育：￥{{result?.shebao.shengyu | number:'1.2-2'}}</li>
+  <li>公积金：￥{{result?.shebao.gongjijin | number:'1.2-2'}}</li>
+  <li>税前：￥{{result?.shuiqian | number:'1.2-2'}}</li>
+  <li>税：￥{{result?.shui | number:'1.2-2'}}</li>
+  <li>实发：￥{{result?.shifa | number:'1.2-2'}}</li>
+</ul>

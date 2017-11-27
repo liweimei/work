@@ -1,0 +1,51 @@
+/* 添加全局的css样式 */
+*{
+  box-sizing: border-box;
+}
+body,p{
+  margin: 0;
+}
+header{
+  height: 44px;
+  background-color: #3a6;
+  color: white;
+  text-align: center;
+  line-height: 44px;
+}
+footer{
+  width: 100%;
+  height: 44px;
+  background-color: #3a6;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+}
+footer a{
+  flex-grow: 1;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+footer a.active{
+  color: orange;
+}
+
+form{
+  padding: 10px;
+}
+.form-group{
+  height: 50px;
+  font-size: 12px;
+  line-height: 20px;
+}
+input{
+  height: 30px;
+  border: 1px solid #3a6;
+  outline: none;
+  font-size: 14px;
+  padding-left: 10px;
+}
+.calc input{
+  width: 100%;
+}

@@ -1,0 +1,20 @@
+<header>
+  {{tabItems[tabIndex].title}}
+</header>
+
+<app-calc [appShow]="tabIndex==0"></app-calc>
+<!-- 监听子组件发射的事件 ratechange -->
+<app-settings [appShow]="tabIndex==1" (ratechange)="changeFromSettings()"></app-settings>
+<app-about [appShow]="tabIndex==2"></app-about>
+
+<footer>
+  <a 
+  *ngFor="let item of tabItems; let i = index;" 
+  href="javascript:;"
+  (click)="tabIndex = i"
+  [class.active]="tabIndex==i"
+  >
+    <span [class]="item.icon"></span>
+    <p>{{item.title}}</p>
+  </a>
+</footer>
